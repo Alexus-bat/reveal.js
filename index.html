@@ -16,8 +16,109 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section><h1>TypeScript</h1></section>
+				<section><h2>Basics</h2>
+					<pre><code>const myStringVariable: string = "str";</code></pre>
+					<ul>There are 6 basic, primitive types to remember:
+						<li>number - represents any kind of numeric value - integer or float, hex, decimal, binary etc.</li>
+						<li>string - represents any kind of string value;</li>
+						<li>boolean - represents any boolean value, i.e. true or false;</li>
+						<li>symbol - represents symbol values;</li>
+						<li>null - represents null value only;</li>
+						<li>undefined - represents undefined value only;</li>
+					</ul>
+				</section>
+				<section>
+					<h2>More types!</h2>
+					<h3>Object</h3>
+					<pre><code>const myObjectVariable: object = "str"; // error
+const myObjectVariable2: object = {};</code></pre>
+				</section>
+				<section>
+					<h3>Any</h3>
+					<pre><code>let myAnyVariable: any = "str";
+myAnyVariable = 10;
+myAnyVariable = true;</code></pre>
+				</section>
+				<section>
+					<h3>Void</h3>
+					<pre><code>let myVoidVariable: void = undefined;
+myVoidVariable = null;</code></pre>
+				</section>
+				<section>
+					<h3>Unknown</h3>
+					<pre>Like with any:<code>const myUnknownVariable: unknown = "str";
+const myAnyVariable: any = "str";</code></pre>
+<pre>The difference:<code>let myUnknownVariable2: unknown = myUnknownVariable;
+myUnknownVariable2 = myAnyVariable;
+
+let myStringVariable: string = "str";
+myStringVariable = myAnyVariable;
+myStringVariable = myUnknownVariable; // error</code></pre>
+				</section>
+				<section>
+					<h3>Unions</h3>
+					<pre><code>let myUnionVariable: string | number = "str";
+myUnionVariable = 10;
+myUnionVariable = false; // error</code></pre>
+				</section>
+				<section>
+					<h3>Literals</h3>
+					<pre><code>let myObjectLiteral: {str: string} = {str: "str"};
+myObjectLiteral.str = "string";
+myObrjectLiteral.num = 10; // error</code></pre>
+				</section>
+				<section>
+					<h3>Intersection types</h3>
+					<pre><code>const myIntersectionVariable: {str: string} & {num: number} = {
+	str : "str",
+	num: 10
+};</code></pre>
+				</section>
+				<section>
+					<h3>Arrays</h3>
+					<pre><code>const myUnionArrayVariable: (string | number)[] = ["str", 10];
+const myLiteralArrayVariable: ("str")[] = ["str","str"];</code></pre>
+				</section>
+				<section>
+					<h3>Tuples</h3>
+					<pre><code>const myTupleVariable: [number, string] = [10, "str"];
+const myTupleVariable2: [string, number] = [10, "str"]; // error</code></pre>
+				</section>
+				<section>
+					<h2>Functions</h2>
+					<h4>type functions</h4>
+					<pre><code>function myFunction(myStringArg: string, myNumberArg: number): void
+{
+	// code
+}</code></pre>
+				</section>
+				<section>
+					<h4>arrow functions</h4>
+					<pre><code>const myFunctionExpression: (arg: string, arg2: number) => void =
+(arg, arg2) => {
+	// code
+}</code></pre>
+				</section>
+				<section>
+					<h4>question mark ( ? )</h4>
+					<pre><code>function myFunction(myArg: number, myOptionalArg?: string): void {
+	// code
+}</code></pre>
+				</section>
+				<section>
+					<h3>Type inference</h3>
+					<pre><code>const myStringVariable = "str"; // string
+const myNumberVariable = 10; // number
+const myObjectVariable = {
+	str: "str",
+	num: 10
+}; // {str: string, num: number}</code></pre>
+				</section>
+				<section>
+					<h2>Thank's</h2>
+					<h4>Author: <a href="https://github.com/Alexus-bat">https://github.com/Alexus-bat</a></h4>
+				</section>
 			</div>
 		</div>
 
